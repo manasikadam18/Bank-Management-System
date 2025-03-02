@@ -1,10 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <iomanip>
-
 using namespace std;
 
-// Bank Account Class
 class BankAccount {
 private:
     string accountHolder;
@@ -12,14 +10,11 @@ private:
     double balance;
 
 public:
-    // Constructor
     BankAccount(string name, int accNum, double initialBalance) {
         accountHolder = name;
         accountNumber = accNum;
         balance = initialBalance;
     }
-
-    // Deposit Money
     void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
@@ -28,8 +23,6 @@ public:
             cout << "Invalid Deposit Amount!\n";
         }
     }
-
-    // Withdraw Money
     void withdraw(double amount) {
         if (amount > 0 && amount <= balance) {
             balance -= amount;
@@ -38,13 +31,9 @@ public:
             cout << "Insufficient Balance or Invalid Amount!\n";
         }
     }
-
-    // Check Balance
     double getBalance() {
         return balance;
     }
-
-    // Display Account Details
     void displayAccount() {
         cout << "\n=========== Account Details ===========\n";
         cout << "Account Holder: " << accountHolder << endl;
@@ -52,21 +41,19 @@ public:
         cout << "Balance: $" << fixed << setprecision(2) << balance << endl;
         cout << "========================================\n";
     }
-
-    // Get Account Number
     int getAccountNumber() {
         return accountNumber;
     }
 };
-
-// Main Function
-int main() {
+int main() 
+{
     vector<BankAccount> accounts;
     int choice, accNum;
     string name;
     double amount;
 
-    while (true) {
+    while (true) 
+    {
         cout << "\n========= Bank Management System =========\n";
         cout << "1. Create Account\n";
         cout << "2. Deposit Money\n";
@@ -77,8 +64,10 @@ int main() {
         cout << "Enter Your Choice: ";
         cin >> choice;
 
-        switch (choice) {
-            case 1: {
+        switch (choice)
+        {
+            case 1: 
+            {
                 cout << "Enter Account Holder Name: ";
                 cin.ignore();
                 getline(cin, name);
